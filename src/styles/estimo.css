@@ -2150,3 +2150,208 @@ textarea:focus {
     max-width: 100%;
   }
 }
+
+/* ============================================================
+   UI Enhancements (React build)
+   ============================================================ */
+
+::selection {
+  background: var(--brand);
+  color: #fff;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+html {
+  scrollbar-color: #c7cfe0 #f4f5f8;
+}
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body::-webkit-scrollbar-track {
+  background: #f4f5f8;
+}
+body::-webkit-scrollbar-thumb {
+  background: #c7cfe0;
+  border-radius: 99px;
+  border: 2px solid #f4f5f8;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #aab3c7;
+}
+
+/* Hero background accents */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(79, 70, 229, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(560px 420px at 78% 18%, #000 0%, transparent 72%);
+  -webkit-mask-image: radial-gradient(560px 420px at 78% 18%, #000 0%, transparent 72%);
+}
+
+.hero-actions .btn-primary,
+.step-actions .btn-primary {
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.22);
+}
+.hero-actions .btn-primary:hover,
+.step-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(79, 70, 229, 0.32);
+}
+
+.badge {
+  color: var(--ink-2);
+}
+.badge .dot {
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(18, 183, 106, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(18, 183, 106, 0);
+  }
+}
+
+.grad-text {
+  position: relative;
+}
+.grad-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 8px;
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.18), rgba(139, 92, 246, 0.18));
+  border-radius: 99px;
+  z-index: -1;
+}
+
+/* Buttons micro-interactions */
+.btn {
+  position: relative;
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.btn-ghost:hover {
+  border-color: var(--brand-tint);
+}
+
+/* Chips */
+.chip {
+  border-color: var(--line);
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  transition: 0.2s;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+.chip.active {
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.16);
+}
+
+/* Options */
+.q-opt {
+  border-color: var(--line);
+  background: #fff;
+}
+.q-opt:hover {
+  border-color: var(--brand);
+  border-width: 1px;
+  transform: translateX(3px);
+  box-shadow: var(--shadow-sm);
+}
+.q-opt.selected {
+  border-color: var(--brand);
+  background: rgba(99, 102, 241, 0.06);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.14);
+}
+
+/* Cards */
+.cat-card:hover,
+.how-card:hover {
+  border-color: var(--brand);
+}
+.cat-icon {
+  transition: transform 0.25s ease;
+}
+.cat-card:hover .cat-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.plan:hover {
+  border-color: #d7dce6;
+  box-shadow: var(--shadow-sm);
+}
+.plan-pop:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Result cards */
+.r-card.is-avg strong {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* FAQ icon as plus sign roll */
+.faq-item.open {
+  box-shadow: var(--shadow-xs);
+}
+.faq-q {
+  letter-spacing: -0.01em;
+}
+
+/* Wizard steps */
+.wizard-steps li {
+  position: relative;
+}
+.wizard-steps li.is-done::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+}
+
+/* Toast refinement */
+.toast {
+  letter-spacing: 0.01em;
+}
+
+/* Modal entrance */
+.quote-modal.open .quote-doc {
+  animation: modalIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
